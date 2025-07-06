@@ -66,6 +66,16 @@ Shows how to use NeuralProphet for time series forecasting with visualization.
 - **Visualization**: Clear presentation of optimization results and forecasts
 - **Time Series Analysis**: Forecasting using neural network-based prophet models
 
+### Scheduling Pipeline DSL
+
+The scheduling pipeline DSL is a declarative language that lets you stitch together data, forecast, geo, weather, and optimisation services in a single file. Read more about it in the [DSL concept](dsl_concept.md).
+
+```bash
+trucking_demo.yaml
+```
+
+illustrates how one might declare the scheduling pipeline DSL to solve a vehicle routing problem with multiple constraints.
+
 ## License
 
 MIT
