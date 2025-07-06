@@ -1,0 +1,82 @@
+spec-v: 2.0
+name:  "Midwest Lane Planning – 72 h"
+description: >
+  Combine demand forecast, live distance, and weather risk to load-balance 4 tractor-trailers
+  across 25 retail stores for the next 3 days.
+
+domain:
+  industry: trucking
+  units: {distance: km, time: minutes, demand: cases}
+
+pipeline:
+  stages:
+
+  # ── 1 ▸ Pull historic order & travel data ───────────────────
+  - id: orders_raw
+    uses: data
+    with:
+      sql: |
+        SELECT store_id, order_date, cases
+        FROM DEMO_DB.RAW_ORDERS
+        WHERE order_date BETWEEN CURRENT_DATE() - INTERVAL '90' DAY
+                             AND CURRENT_DATE()
+      conn: SNOWFLAKE_DEMO
+
+  # ── 2 ▸ 14-day demand forecast per store ────────────────────
+  - id: demand_fc
+    uses: forecast
+    with:
+      input: orders_raw
+      target_col: cases
+      ds_col: order_date
+      group_col: store_id
+      horizon: 14d
+      model_cfg:
+        weekly_seasonality: true
+        n_changepoints: 40
+
+  # ── 3 ▸ Geocode stores and depot ────────────────────────────
+  - id: store_coords
+    uses: geo
+    with:
+      mode: geocode
+      addresses:
+        - "1100 Depot Dr, Chicago IL"
+        - lookup: SELECT DISTINCT address FROM DEMO_DB.STORES
+      api_key_ref: GOOGLE_MAPS_KEY
+
+  - id: dist_matrix
+    uses: geo
+    with:
+      mode: distance_matrix
+      origins: store_coords
+      destinations: store_coords
+      api_key_ref: GOOGLE_MAPS_KEY
+
+  # ── 4 ▸ Weather disruption risk score ───────────────────────
+  - id: wx_risk
+    uses: weather
+    with:
+      input: store_coords
+      forecast_window: 3d
+      lat_field: lat
+      lon_field: lon
+      risk_metric: snow_ice_prob      # custom DSL extension
+
+  # ── 5 ▸ Vehicle-routing optimisation ────────────────────────
+  - id: route_plan
+    uses: optimize
+    with:
+      solver: cp-sat
+      variables:
+        - name: route[v,s,t]         # v vehicle, s store, t time
+          shape: [4, 25, 3]          # 4 trucks, 25 stores, 3 days
+      constraints:
+        - {rule: assign_exactly_one, dims: [store, time]}
+        - {rule: max_shift, params: {hours: 9}}
+        - {rule: weather_penalty,
+           params: {wx_ref: wx_risk, threshold: 0.3, penalty: 50}}
+      objective: {minimize: total_distance_km}
+      data_refs:
+        distance: dist_matrix
+        demand:   demand_fc
