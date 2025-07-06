@@ -28,7 +28,7 @@ This project demonstrates various optimization techniques and time series foreca
 # Clone the repository
 git clone https://github.com/username/gorp-dsl.git
 cd gorp-dsl
-
+```
 # Create and ync the virtual environment (optional but recommended)
 ```bash
 uv sync
@@ -51,6 +51,13 @@ Demonstrates a simple linear programming problem using OR-Tools' SCIP solver.
 uv run nurse_scheduler.py
 ```
 Implements a constraint programming solution to the nurse scheduling problem with visualization using pandas and seaborn.
+
+### Time Series Forecasting
+
+```bash
+uv run np_tester.py
+```
+Shows how to use NeuralProphet for time series forecasting with visualization.
 
 ### Nurse Scheduling DSL Example
 
@@ -88,12 +95,7 @@ Day
 Stats: Conflicts = 5 Branches = 326 Wall time = 0.001124 s
 ```
 
-### Time Series Forecasting
 
-```bash
-uv run np_tester.py
-```
-Shows how to use NeuralProphet for time series forecasting with visualization.
 
 ## Features
 
