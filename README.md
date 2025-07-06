@@ -52,6 +52,42 @@ uv run nurse_scheduler.py
 ```
 Implements a constraint programming solution to the nurse scheduling problem with visualization using pandas and seaborn.
 
+### Nurse Scheduling DSL Example
+
+The Nurse Scheduling DSL is a declarative language that lets you stitch together optimisation service spec in a single file. The toy model can be found in `nurse_schedule_demo.yaml`.
+
+```bash
+uv run dsl2cp.py nurse_schedule_demo.yaml
+```
+
+This demonstrates using the DSL to define and solve a nurse scheduling problem. Example output:
+
+```
+Stop search after 3 solutions
+
+Solution:
+Day 0, Shift 0: N3
+Day 0, Shift 1: N1
+Day 0, Shift 2: N2
+Day 1, Shift 0: N1
+Day 1, Shift 1: N0
+Day 1, Shift 2: N2
+Day 2, Shift 0: N2
+Day 2, Shift 1: N1
+Day 2, Shift 2: N0
+
+Nurse Assignment Table:
+======================
+Shift   0   1   2
+Day              
+0      N3  N1  N2
+1      N1  N0  N2
+2      N2  N1  N0
+======================
+
+Stats: Conflicts = 5 Branches = 326 Wall time = 0.001124 s
+```
+
 ### Time Series Forecasting
 
 ```bash

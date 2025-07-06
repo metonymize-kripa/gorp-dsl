@@ -1,0 +1,47 @@
+# nurse_schedule_demo.yaml
+spec-v: 1.0                        # DSL version tag
+name: "Demo – Nurse Scheduling"    # scenario label
+description: >
+  Minimal example of the general-purpose scheduling DSL.
+  Four nurses are assigned to three shifts per day over a three-day horizon.
+  Hard constraints: every shift staffed, no double-booking, balanced workload.
+
+# ─────────────────────────  Timeline  ──────────────────────────
+horizon:
+  days: 3                         # 0,1,2
+  shifts:
+    - id: 0
+      label: Morning              # human-friendly alias (optional)
+    - id: 1
+      label: Evening
+    - id: 2
+      label: Night
+
+# ─────────────────────────  Resources  ─────────────────────────
+resources:
+  nurses:
+    list: [N0, N1, N2, N3]        # explicit IDs; could use `count: 4`
+
+# ─────────────────────────  Constraints  ───────────────────────
+constraints:
+  hard:
+    # 1 ▸ Every (day, shift) must have exactly one nurse
+    - rule: assign_exactly_one
+      params: {dimension: shift}
+
+    # 2 ▸ A nurse cannot work two shifts on the same day
+    - rule: at_most_one
+      params: {dimension: shift}
+
+    # 3 ▸ Keep workload within ±1 of the average
+    - rule: workload_balance
+      params: {tolerance: 1}
+
+  soft: []                        # none needed for this toy problem
+
+# ─────────────────────────  Solver Hints  ──────────────────────
+solver:
+  backend: cp-sat                 # adapter decides which engine to load
+  parameters:
+    enumerate_all_solutions: true
+    solution_limit: 3             # stop after three feasible schedules
