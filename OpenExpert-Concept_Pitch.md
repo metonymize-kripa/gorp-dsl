@@ -2,6 +2,8 @@
 ## OpenExpert: Expert-Steered AI Applications
 
 _“Expert knowledge. DSL-driven. Hosted once. Scalable forever.”_
+
+
 Domain experts steer AI apps at the speed of thought — zero vendor lock-in, zero technical debt bloat.
 
 ### Purpose
