@@ -1,3 +1,4 @@
+# Vercel Playbook
 Vercel has leveraged the power of open source to build a dominant commercial platform. By identifying and solving the core challenges of modern web development in an open source native manner, the company has solved the distribution and customer acquisition problem while also fundamentally contributing to the tools and workflows used by millions of developers worldwide.
 
 ### Summary of the Vercel Playbook
