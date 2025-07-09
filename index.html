@@ -52,6 +52,18 @@
             opacity: 1;
             transform: translateY(0);
         }
+        .yaml-key {
+            color: #67d8ef;
+        }
+        .yaml-string {
+            color: #a6e22e;
+        }
+        .yaml-comment {
+            color: #75715e;
+        }
+        .yaml-number {
+            color: #ae81ff;
+        }
     </style>
 </head>
 <body class="antialiased">
@@ -65,6 +77,7 @@
                 <a href="#opportunity" class="nav-link text-gray-600 font-medium">The Opportunity</a>
                 <a href="#solution" class="nav-link text-gray-600 font-medium">The Solution</a>
                 <a href="#competition" class="nav-link text-gray-600 font-medium">Competitive Edge</a>
+                <a href="#demo" class="nav-link text-gray-600 font-medium">Demo</a>
                 <a href="#playbook" class="nav-link text-gray-600 font-medium">Playbook & Roadmap</a>
             </div>
             <button id="mobile-menu-button" class="md:hidden p-2 rounded-md text-gray-600 hover:text-gray-900 hover:bg-gray-100">
@@ -77,6 +90,7 @@
             <a href="#opportunity" class="block py-2 px-6 text-sm text-gray-700 hover:bg-gray-100">The Opportunity</a>
             <a href="#solution" class="block py-2 px-6 text-sm text-gray-700 hover:bg-gray-100">The Solution</a>
             <a href="#competition" class="block py-2 px-6 text-sm text-gray-700 hover:bg-gray-100">Competitive Edge</a>
+            <a href="#demo" class="block py-2 px-6 text-sm text-gray-700 hover:bg-gray-100">Demo</a>
             <a href="#playbook" class="block py-2 px-6 text-sm text-gray-700 hover:bg-gray-100">Playbook & Roadmap</a>
         </div>
     </header>
@@ -187,6 +201,95 @@
             </div>
         </section>
 
+        <section id="demo" class="space-y-16 section-fade-in">
+            <div class="text-center">
+                <h2 class="text-3xl md:text-4xl font-bold text-[#4A4A4A]">See It In Action</h2>
+                <p class="mt-4 max-w-3xl mx-auto text-lg text-gray-600">Here's how a trucking expert would define a complex route optimization system using our DSL. No coding required—just clear, declarative specifications.</p>
+            </div>
+            
+            <div class="max-w-6xl mx-auto">
+                <div class="bg-white rounded-xl shadow-lg overflow-hidden">
+                    <div class="bg-gradient-to-r from-[#6C8EAD] to-[#B88A78] px-6 py-4">
+                        <h3 class="text-xl font-bold text-white flex items-center">
+                            <span class="text-2xl mr-3">🚛</span>
+                            Midwest Lane Planning Demo
+                        </h3>
+                        <p class="text-white/90 text-sm mt-1">72-hour route optimization for 4 trucks across 25 stores</p>
+                    </div>
+                    
+                    <div class="grid grid-cols-1 lg:grid-cols-2 gap-0">
+                        <div class="p-6 bg-gray-50 border-r border-gray-200">
+                            <div class="flex items-center justify-between mb-4">
+                                <h4 class="text-lg font-semibold text-[#4A4A4A]">DSL Specification</h4>
+                                <span class="text-xs bg-[#6C8EAD] text-white px-2 py-1 rounded">trucking_demo.yaml</span>
+                            </div>
+                            <div class="bg-gray-900 rounded-lg p-4 text-sm font-mono text-gray-300 overflow-x-auto max-h-96 overflow-y-auto">
+                                <pre id="dsl-code"></pre>
+                            </div>
+                        </div>
+                        
+                        <div class="p-6">
+                            <h4 class="text-lg font-semibold text-[#4A4A4A] mb-4">What This DSL Does</h4>
+                            <div class="space-y-4">
+                                <div class="flex items-start space-x-3">
+                                    <div class="flex-shrink-0 w-8 h-8 bg-[#6C8EAD] text-white rounded-full flex items-center justify-center text-sm font-bold">1</div>
+                                    <div>
+                                        <h5 class="font-semibold text-[#4A4A4A]">Data Integration</h5>
+                                        <p class="text-gray-600 text-sm">Pulls 90 days of historical orders from Snowflake database</p>
+                                    </div>
+                                </div>
+                                
+                                <div class="flex items-start space-x-3">
+                                    <div class="flex-shrink-0 w-8 h-8 bg-[#B88A78] text-white rounded-full flex items-center justify-center text-sm font-bold">2</div>
+                                    <div>
+                                        <h5 class="font-semibold text-[#4A4A4A]">Demand Forecasting</h5>
+                                        <p class="text-gray-600 text-sm">Generates 14-day demand forecasts per store using time series analysis</p>
+                                    </div>
+                                </div>
+                                
+                                <div class="flex items-start space-x-3">
+                                    <div class="flex-shrink-0 w-8 h-8 bg-[#8A9A5B] text-white rounded-full flex items-center justify-center text-sm font-bold">3</div>
+                                    <div>
+                                        <h5 class="font-semibold text-[#4A4A4A]">Geospatial Processing</h5>
+                                        <p class="text-gray-600 text-sm">Geocodes store locations and calculates distance matrices</p>
+                                    </div>
+                                </div>
+                                
+                                <div class="flex items-start space-x-3">
+                                    <div class="flex-shrink-0 w-8 h-8 bg-[#C4A484] text-white rounded-full flex items-center justify-center text-sm font-bold">4</div>
+                                    <div>
+                                        <h5 class="font-semibold text-[#4A4A4A]">Weather Risk Assessment</h5>
+                                        <p class="text-gray-600 text-sm">Evaluates snow/ice probability for route planning</p>
+                                    </div>
+                                </div>
+                                
+                                <div class="flex items-start space-x-3">
+                                    <div class="flex-shrink-0 w-8 h-8 bg-[#A67B5B] text-white rounded-full flex items-center justify-center text-sm font-bold">5</div>
+                                    <div>
+                                        <h5 class="font-semibold text-[#4A4A4A]">Route Optimization</h5>
+                                        <p class="text-gray-600 text-sm">Solves vehicle routing with constraints for optimal delivery schedules</p>
+                                    </div>
+                                </div>
+                            </div>
+                            
+                            <div class="mt-6 p-4 bg-green-50 rounded-lg border border-green-200">
+                                <div class="flex items-center justify-between">
+                                    <div class="flex items-center">
+                                        <span class="text-green-600 text-xl mr-2">✓</span>
+                                        <span class="text-green-800 font-semibold">Result:</span>
+                                    </div>
+                                    <button id="showDashboard" class="px-4 py-2 bg-[#6C8EAD] text-white rounded-lg text-sm font-medium hover:bg-[#5A7A96] transition-colors">
+                                        View Dashboard
+                                    </button>
+                                </div>
+                                <p class="text-green-700 text-sm mt-1">Automatically generates an interactive dashboard with route maps, demand charts, and schedule tables—all from this simple specification.</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
         <section id="playbook" class="space-y-16 section-fade-in">
             <div class="text-center">
                 <h2 class="text-3xl md:text-4xl font-bold text-[#4A4A4A]">The Path to Market Leadership</h2>
@@ -220,11 +323,225 @@
         </div>
     </div>
 
+    <div id="dashboardModal" class="fixed inset-0 bg-black bg-opacity-50 z-50 hidden items-center justify-center p-4">
+        <div class="bg-white rounded-lg shadow-xl w-full max-w-6xl max-h-[90vh] overflow-y-auto">
+            <div class="p-6">
+                <div class="flex justify-between items-center mb-6">
+                    <div class="flex items-center">
+                        <span class="text-2xl mr-3">🚛</span>
+                        <div>
+                            <h3 class="text-2xl font-bold text-[#4A4A4A]">Midwest Lane Planning Dashboard</h3>
+                            <p class="text-gray-600 text-sm">Auto-generated from DSL specification</p>
+                        </div>
+                    </div>
+                    <button id="closeDashboard" class="text-gray-500 hover:text-gray-800 text-3xl leading-none">&times;</button>
+                </div>
+                
+                <div class="grid grid-cols-1 lg:grid-cols-3 gap-6 mb-6">
+                    <div class="bg-blue-50 p-4 rounded-lg border border-blue-200">
+                        <div class="flex items-center justify-between">
+                            <h4 class="font-semibold text-blue-900">Total Distance</h4>
+                            <span class="text-2xl">📍</span>
+                        </div>
+                        <p class="text-2xl font-bold text-blue-800">2,847 km</p>
+                        <p class="text-sm text-blue-600">↓ 12% vs last week</p>
+                    </div>
+                    
+                    <div class="bg-green-50 p-4 rounded-lg border border-green-200">
+                        <div class="flex items-center justify-between">
+                            <h4 class="font-semibold text-green-900">Delivery Success</h4>
+                            <span class="text-2xl">✅</span>
+                        </div>
+                        <p class="text-2xl font-bold text-green-800">96.4%</p>
+                        <p class="text-sm text-green-600">↑ 2.1% vs last week</p>
+                    </div>
+                    
+                    <div class="bg-yellow-50 p-4 rounded-lg border border-yellow-200">
+                        <div class="flex items-center justify-between">
+                            <h4 class="font-semibold text-yellow-900">Weather Risk</h4>
+                            <span class="text-2xl">⛈️</span>
+                        </div>
+                        <p class="text-2xl font-bold text-yellow-800">Medium</p>
+                        <p class="text-sm text-yellow-600">3 routes affected</p>
+                    </div>
+                </div>
+                
+                <div class="grid grid-cols-1 lg:grid-cols-2 gap-6 mb-6">
+                    <div class="bg-gray-50 p-4 rounded-lg">
+                        <h4 class="font-semibold text-[#4A4A4A] mb-4">Route Optimization Map</h4>
+                        <div class="bg-white p-4 rounded border h-64 flex items-center justify-center">
+                            <div class="text-center">
+                                <div class="text-6xl mb-2">🗺️</div>
+                                <p class="text-gray-600">Interactive route map showing:</p>
+                                <ul class="text-sm text-gray-500 mt-2">
+                                    <li>• 4 truck routes</li>
+                                    <li>• 25 store locations</li>
+                                    <li>• Weather overlays</li>
+                                    <li>• Real-time traffic</li>
+                                </ul>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <div class="bg-gray-50 p-4 rounded-lg">
+                        <h4 class="font-semibold text-[#4A4A4A] mb-4">Demand Forecast</h4>
+                        <div class="bg-white p-4 rounded border h-64 relative">
+                            <canvas id="demandChart"></canvas>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="bg-gray-50 p-4 rounded-lg">
+                    <h4 class="font-semibold text-[#4A4A4A] mb-4">Optimized Schedule</h4>
+                    <div class="bg-white rounded border overflow-hidden">
+                        <table class="w-full text-sm">
+                            <thead class="bg-gray-100">
+                                <tr>
+                                    <th class="p-3 text-left">Vehicle</th>
+                                    <th class="p-3 text-left">Route</th>
+                                    <th class="p-3 text-left">Stores</th>
+                                    <th class="p-3 text-left">Distance</th>
+                                    <th class="p-3 text-left">Weather Risk</th>
+                                    <th class="p-3 text-left">Status</th>
+                                </tr>
+                            </thead>
+                            <tbody id="scheduleTable">
+                                <tr class="border-t">
+                                    <td class="p-3 font-medium">🚛 Truck A</td>
+                                    <td class="p-3">Chicago → Milwaukee → Madison</td>
+                                    <td class="p-3">8 stores</td>
+                                    <td class="p-3">654 km</td>
+                                    <td class="p-3"><span class="px-2 py-1 bg-green-100 text-green-800 rounded-full text-xs">Low</span></td>
+                                    <td class="p-3"><span class="px-2 py-1 bg-blue-100 text-blue-800 rounded-full text-xs">En Route</span></td>
+                                </tr>
+                                <tr class="border-t">
+                                    <td class="p-3 font-medium">🚛 Truck B</td>
+                                    <td class="p-3">Chicago → Rockford → Peoria</td>
+                                    <td class="p-3">6 stores</td>
+                                    <td class="p-3">523 km</td>
+                                    <td class="p-3"><span class="px-2 py-1 bg-yellow-100 text-yellow-800 rounded-full text-xs">Medium</span></td>
+                                    <td class="p-3"><span class="px-2 py-1 bg-green-100 text-green-800 rounded-full text-xs">Ready</span></td>
+                                </tr>
+                                <tr class="border-t">
+                                    <td class="p-3 font-medium">🚛 Truck C</td>
+                                    <td class="p-3">Chicago → Springfield → Bloomington</td>
+                                    <td class="p-3">7 stores</td>
+                                    <td class="p-3">612 km</td>
+                                    <td class="p-3"><span class="px-2 py-1 bg-green-100 text-green-800 rounded-full text-xs">Low</span></td>
+                                    <td class="p-3"><span class="px-2 py-1 bg-gray-100 text-gray-800 rounded-full text-xs">Scheduled</span></td>
+                                </tr>
+                                <tr class="border-t">
+                                    <td class="p-3 font-medium">🚛 Truck D</td>
+                                    <td class="p-3">Chicago → Joliet → Kankakee</td>
+                                    <td class="p-3">4 stores</td>
+                                    <td class="p-3">398 km</td>
+                                    <td class="p-3"><span class="px-2 py-1 bg-red-100 text-red-800 rounded-full text-xs">High</span></td>
+                                    <td class="p-3"><span class="px-2 py-1 bg-yellow-100 text-yellow-800 rounded-full text-xs">Delayed</span></td>
+                                </tr>
+                            </tbody>
+                        </table>
+                    </div>
+                </div>
+                
+                <div class="mt-6 p-4 bg-blue-50 rounded-lg border border-blue-200">
+                    <div class="flex items-center">
+                        <span class="text-blue-600 text-xl mr-2">💡</span>
+                        <span class="text-blue-800 font-semibold">Live Updates:</span>
+                    </div>
+                    <p class="text-blue-700 text-sm mt-1">This dashboard updates automatically as new data arrives. The DSL specification handles data refresh, model retraining, and UI updates seamlessly.</p>
+                </div>
+            </div>
+        </div>
+    </div>
+
 
 <script>
 document.addEventListener('DOMContentLoaded', function() {
     
     // --- DATA --- //
+    const dslContent = `spec-v: 2.0
+name:  "Midwest Lane Planning – 72 h"
+description: >
+  Combine demand forecast, live distance, and weather risk to load-balance 4 tractor-trailers
+  across 25 retail stores for the next 3 days.
+
+domain:
+  industry: trucking
+  units: {distance: km, time: minutes, demand: cases}
+
+pipeline:
+  stages:
+
+  # ── 1 ▸ Pull historic order & travel data ───────────────────
+  - id: orders_raw
+    uses: data
+    with:
+      sql: |
+        SELECT store_id, order_date, cases
+        FROM DEMO_DB.RAW_ORDERS
+        WHERE order_date BETWEEN CURRENT_DATE() - INTERVAL '90' DAY
+                             AND CURRENT_DATE()
+      conn: SNOWFLAKE_DEMO
+
+  # ── 2 ▸ 14-day demand forecast per store ────────────────────
+  - id: demand_fc
+    uses: forecast
+    with:
+      input: orders_raw
+      target_col: cases
+      ds_col: order_date
+      group_col: store_id
+      horizon: 14d
+      model_cfg:
+        weekly_seasonality: true
+        n_changepoints: 40
+
+  # ── 3 ▸ Geocode stores and depot ────────────────────────────
+  - id: store_coords
+    uses: geo
+    with:
+      mode: geocode
+      addresses:
+        - "1100 Depot Dr, Chicago IL"
+        - lookup: SELECT DISTINCT address FROM DEMO_DB.STORES
+      api_key_ref: GOOGLE_MAPS_KEY
+
+  - id: dist_matrix
+    uses: geo
+    with:
+      mode: distance_matrix
+      origins: store_coords
+      destinations: store_coords
+      api_key_ref: GOOGLE_MAPS_KEY
+
+  # ── 4 ▸ Weather disruption risk score ───────────────────────
+  - id: wx_risk
+    uses: weather
+    with:
+      input: store_coords
+      forecast_window: 3d
+      lat_field: lat
+      lon_field: lon
+      risk_metric: snow_ice_prob      # custom DSL extension
+
+  # ── 5 ▸ Vehicle-routing optimisation ────────────────────────
+  - id: route_plan
+    uses: optimize
+    with:
+      solver: cp-sat
+      variables:
+        - name: route[v,s,t]         # v vehicle, s store, t time
+          shape: [4, 25, 3]          # 4 trucks, 25 stores, 3 days
+      constraints:
+        - {rule: assign_exactly_one, dims: [store, time]}
+        - {rule: max_shift, params: {hours: 9}}
+        - {rule: weather_penalty,
+           params: {wx_ref: wx_risk, threshold: 0.3, penalty: 50}}
+      objective: {minimize: total_distance_km}
+      data_refs:
+        distance: dist_matrix
+        demand:   demand_fc`;
+
     const marketData = {
         labels: ['2023', '2025', '2028', '2030'],
         datasets: [{
@@ -277,6 +594,20 @@ document.addEventListener('DOMContentLoaded', function() {
 
 
     // --- RENDER FUNCTIONS --- //
+
+    // DSL Demo
+    const dslCodeElement = document.getElementById('dsl-code');
+    if (dslCodeElement) {
+        // Basic syntax highlighting for YAML
+        const highlightedContent = dslContent
+            .replace(/^(\s*)(#.*)$/gm, '$1<span class="yaml-comment">$2</span>')
+            .replace(/^(\s*)([a-zA-Z_][a-zA-Z0-9_]*)\s*:/gm, '$1<span class="yaml-key">$2</span>:')
+            .replace(/:\s*"([^"]*)"$/gm, ': <span class="yaml-string">"$1"</span>')
+            .replace(/:\s*([0-9]+(?:\.[0-9]+)?[a-zA-Z]*)\s*$/gm, ': <span class="yaml-number">$1</span>')
+            .replace(/:\s*(true|false)\s*$/gm, ': <span class="yaml-number">$1</span>');
+        
+        dslCodeElement.innerHTML = highlightedContent;
+    }
 
     // Market Chart
     const ctx = document.getElementById('marketChart').getContext('2d');
@@ -412,6 +743,82 @@ document.addEventListener('DOMContentLoaded', function() {
         if (e.target === modal) {
             modal.classList.add('hidden');
             modal.classList.remove('flex');
+        }
+    });
+
+    // Dashboard Modal
+    const dashboardModal = document.getElementById('dashboardModal');
+    const showDashboardBtn = document.getElementById('showDashboard');
+    const closeDashboardBtn = document.getElementById('closeDashboard');
+    let demandChart = null;
+
+    showDashboardBtn.addEventListener('click', () => {
+        dashboardModal.classList.remove('hidden');
+        dashboardModal.classList.add('flex');
+        
+        // Create demand forecast chart
+        setTimeout(() => {
+            const demandCtx = document.getElementById('demandChart');
+            if (demandCtx && !demandChart) {
+                demandChart = new Chart(demandCtx.getContext('2d'), {
+                    type: 'line',
+                    data: {
+                        labels: ['Day 1', 'Day 2', 'Day 3', 'Day 4', 'Day 5', 'Day 6', 'Day 7'],
+                        datasets: [{
+                            label: 'Predicted Demand',
+                            data: [120, 135, 98, 156, 142, 118, 165],
+                            borderColor: '#6C8EAD',
+                            backgroundColor: 'rgba(108, 142, 173, 0.1)',
+                            fill: true,
+                            tension: 0.4
+                        }, {
+                            label: 'Actual Demand',
+                            data: [115, 128, 105, 149, null, null, null],
+                            borderColor: '#B88A78',
+                            backgroundColor: 'rgba(184, 138, 120, 0.1)',
+                            fill: false,
+                            tension: 0.4
+                        }]
+                    },
+                    options: {
+                        responsive: true,
+                        maintainAspectRatio: false,
+                        plugins: {
+                            legend: {
+                                display: true,
+                                position: 'top'
+                            }
+                        },
+                        scales: {
+                            y: {
+                                beginAtZero: true,
+                                title: {
+                                    display: true,
+                                    text: 'Cases'
+                                }
+                            },
+                            x: {
+                                title: {
+                                    display: true,
+                                    text: 'Forecast Period'
+                                }
+                            }
+                        }
+                    }
+                });
+            }
+        }, 100);
+    });
+
+    closeDashboardBtn.addEventListener('click', () => {
+        dashboardModal.classList.add('hidden');
+        dashboardModal.classList.remove('flex');
+    });
+
+    dashboardModal.addEventListener('click', (e) => {
+        if (e.target === dashboardModal) {
+            dashboardModal.classList.add('hidden');
+            dashboardModal.classList.remove('flex');
         }
     });
 
