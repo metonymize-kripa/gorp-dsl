@@ -4,17 +4,6 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>OpenExpert: Interactive Strategic Plan</title>
-    <!-- Chosen Palette: Warm Harmony Neutrals -->
-    <!-- Application Structure Plan: A top-down, thematic dashboard structure. Starts with a hero section, followed by 'The Opportunity' (market size + incumbent pain points), 'The Solution' (interactive 3 pillars), 'The Competitive Edge' (interactive comparison matrix), and 'The Playbook & Roadmap' (case studies + visual timeline). A sticky top navigation allows quick jumps between these logical sections. This structure prioritizes a narrative flow—Problem, Solution, Proof, Plan—which is more engaging for an investor or stakeholder than the report's linear format. It allows users to grasp the core value proposition instantly and then drill down into the data and strategic details that interest them most. -->
-    <!-- Visualization & Content Choices: 
-        - Market Size: Report Info -> Market growth projections. Goal -> Show vast opportunity. Viz -> Interactive Line Chart (Chart.js). Interaction -> Hover for details on value per year. Justification -> Clearly shows market evolution over time as requested.
-        - DataRobot Pain Points: Report Info -> List of DataRobot's weaknesses. Goal -> Justify the need for an alternative. Viz -> Interactive Cards (HTML/JS). Interaction -> Click to reveal OpenExpert's counter-strategy. Justification -> Breaks down complex issues into digestible, engaging chunks.
-        - 3 Pillars: Report Info -> Core components of OpenExpert. Goal -> Explain the solution. Viz -> Interactive tabbed section. Interaction -> Click tabs for 'Dev Kit', 'AI Engine', 'Ecosystem'. Justification -> Organizes the core strategy cleanly without overwhelming the user.
-        - Competitive Matrix: Report Info -> Table D comparison. Goal -> Position OpenExpert against competitors. Viz -> Interactive HTML Table. Interaction -> Buttons to filter rows/columns. Justification -> Direct, interactive translation of key comparative data.
-        - Roadmap: Report Info -> Phased GTM plan. Goal -> Show a clear path forward. Viz -> Visual Timeline/Stepper (HTML/CSS). Interaction -> Clicking a phase highlights its details. Justification -> More intuitive and visually appealing than a text list for process-based information.
-        - Playbook: Report Info -> Case studies of GitLab, etc. Goal -> Show precedent for success. Viz -> Clickable logo cards. Interaction -> Modal pop-up with details. Justification -> Hides detailed text initially to keep the UI clean, encouraging focused exploration.
-    -->
-    <!-- CONFIRMATION: NO SVG graphics used. NO Mermaid JS used. -->
     <script src="https://cdn.tailwindcss.com"></script>
     <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
     <link rel="preconnect" href="https://fonts.googleapis.com">
@@ -67,7 +56,6 @@
 </head>
 <body class="antialiased">
 
-    <!-- Header & Navigation -->
     <header id="header" class="bg-white/80 backdrop-blur-md sticky top-0 z-50 shadow-sm">
         <nav class="container mx-auto px-6 py-3 flex justify-between items-center">
             <div class="flex items-center space-x-3">
@@ -85,7 +73,6 @@
                 </svg>
             </button>
         </nav>
-        <!-- Mobile Menu -->
         <div id="mobile-menu" class="hidden md:hidden">
             <a href="#opportunity" class="block py-2 px-6 text-sm text-gray-700 hover:bg-gray-100">The Opportunity</a>
             <a href="#solution" class="block py-2 px-6 text-sm text-gray-700 hover:bg-gray-100">The Solution</a>
@@ -96,92 +83,110 @@
 
     <main class="container mx-auto px-6 py-8 md:py-16 space-y-24 md:space-y-32">
 
-        <!-- Hero Section -->
         <section class="text-center section-fade-in">
-            <h1 class="text-4xl md:text-6xl font-bold tracking-tight text-[#4A4A4A] mb-4">Open Source Enterprise AI</h1>
+            <h1 class="text-4xl md:text-6xl font-bold tracking-tight text-[#4A4A4A] mb-4">Expert-Steerable AI Applications</h1>
             <p class="max-w-3xl mx-auto text-lg md:text-xl text-gray-600">
-                OpenExpert is an open-source, AI-powered platform designed to challenge the high-cost, inflexible incumbents. We're building a transparent, code-first alternative for the modern data science team.
+                Empowering domain experts to design, steer, and maintain powerful AI applications using a simple, declarative Domain-Specific Language (DSL)—no vendor lock-in, no technical debt.
             </p>
         </section>
 
-        <!-- The Opportunity -->
         <section id="opportunity" class="space-y-16 section-fade-in">
             <div class="text-center">
                 <h2 class="text-3xl md:text-4xl font-bold text-[#4A4A4A]">A Massive, Underserved Market</h2>
-                <p class="mt-4 max-w-3xl mx-auto text-lg text-gray-600">The AutoML market is experiencing explosive growth, but current solutions are riddled with issues. High costs and a lack of flexibility create a significant opening for a disruptive new player.</p>
+                <p class="mt-4 max-w-3xl mx-auto text-lg text-gray-600">The AI application market is booming, but existing platforms are too rigid, costly, and opaque. This creates a clear opportunity for a transparent, flexible, and expert-driven alternative.</p>
             </div>
             
             <div>
-                <h3 class="text-2xl font-semibold text-center mb-8 text-[#4A4A4A]">The AutoML Market Explosion</h3>
+                <h3 class="text-2xl font-semibold text-center mb-8 text-[#4A4A4A]">The AI Platform Market Explosion</h3>
                 <div class="chart-container bg-white p-4 rounded-xl shadow-md">
                     <canvas id="marketChart"></canvas>
                 </div>
-                <p class="text-center text-sm text-gray-500 mt-4">Projected AutoML Market Size Evolution (in Billions USD). Source: Synthesis of Market Research Reports.</p>
+                <p class="text-center text-sm text-gray-500 mt-4">Projected AI Platform Market Size Evolution (in Billions USD). Source: Synthesis of Market Research Reports.</p>
             </div>
             
             <div>
-                <h3 class="text-2xl font-semibold text-center mb-8 text-[#4A4A4A]">DataRobot's Unaddressed Pain Points</h3>
+                <h3 class="text-2xl font-semibold text-center mb-8 text-[#4A4A4A]">Incumbent Platform Pain Points</h3>
                  <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6" id="painPointsGrid">
-                    <!-- Pain points will be dynamically inserted here -->
-                </div>
+                    </div>
             </div>
         </section>
 
-        <!-- The Solution -->
-        <section id="solution" class="space-y-12 section-fade-in">
+        <section id="solution" class="space-y-16 section-fade-in">
             <div class="text-center">
-                <h2 class="text-3xl md:text-4xl font-bold text-[#4A4A4A]">The OpenExpert Strategy: An Open, Intelligent Alternative</h2>
-                <p class="mt-4 max-w-3xl mx-auto text-lg text-gray-600">Our solution is built on three synergistic pillars designed to provide flexibility, power, and scalability, directly addressing the market's core needs.</p>
+                <h2 class="text-3xl md:text-4xl font-bold text-[#4A4A4A]">The Solution: An Expert-Driven Architecture</h2>
+                <p class="mt-4 max-w-3xl mx-auto text-lg text-gray-600">We replace rigid, black-box systems with a modular, transparent architecture that puts domain experts in control. Our strategy is built on three interconnected pillars.</p>
             </div>
             <div class="max-w-5xl mx-auto grid grid-cols-1 md:grid-cols-3 gap-8">
-                <!-- Pillar 1 -->
                 <div class="pillar-card bg-white p-6 rounded-xl shadow-md border-t-4 border-[#6C8EAD]">
                     <div class="flex items-center space-x-4 mb-4">
                         <span class="text-3xl">🧩</span>
-                        <h3 class="text-xl font-bold text-[#4A4A4A]">Open-Source Dev Kit</h3>
+                        <h3 class="text-xl font-bold text-[#4A4A4A]">Composable Capability Kit</h3>
                     </div>
-                    <p class="text-gray-600">A transparent, modular, code-first Python library that provides superior AutoML capabilities by integrating best-in-class open-source tools.</p>
+                    <p class="text-gray-600">An open-source library of best-in-class tools (e.g., forecasting, optimization) and data connectors. These are the building blocks for any AI application.</p>
                 </div>
-                <!-- Pillar 2 -->
-                 <div class="pillar-card bg-white p-6 rounded-xl shadow-md border-t-4 border-[#B88A78]">
+                <div class="pillar-card bg-white p-6 rounded-xl shadow-md border-t-4 border-[#B88A78]">
                      <div class="flex items-center space-x-4 mb-4">
-                        <span class="text-3xl">✨</span>
-                        <h3 class="text-xl font-bold text-[#4A4A4A]">AI Code Generation</h3>
+                        <span class="text-3xl">✍️</span>
+                        <h3 class="text-xl font-bold text-[#4A4A4A]">DSL-Driven Core</h3>
                     </div>
-                    <p class="text-gray-600">An integrated LLM-powered engine that makes complex code accessible, shifting the paradigm from "no-code" to "AI-assisted code."</p>
+                    <p class="text-gray-600">A simple Domain-Specific Language (DSL) allows experts to define application logic, connecting capabilities to data and UI, all in a readable, version-controlled format.</p>
                 </div>
-                <!-- Pillar 3 -->
                 <div class="pillar-card bg-white p-6 rounded-xl shadow-md border-t-4 border-[#8A9A5B]">
                      <div class="flex items-center space-x-4 mb-4">
-                        <span class="text-3xl">🤝</span>
-                        <h3 class="text-xl font-bold text-[#4A4A4A]">Expert Ecosystem</h3>
+                        <span class="text-3xl">☁️</span>
+                        <h3 class="text-xl font-bold text-[#4A4A4A]">Hosted Runtime & Ecosystem</h3>
                     </div>
-                    <p class="text-gray-600">A certified partner network providing scalable, high-quality implementation and advisory services, replacing costly internal teams.</p>
+                    <p class="text-gray-600">A managed cloud platform that executes DSL specs, renders UIs, and handles security & scale. Complemented by an expert partner network for implementation.</p>
+                </div>
+            </div>
+
+            <div>
+                <h3 class="text-2xl font-semibold text-center mb-8 text-[#4A4A4A]">How It Works: The 3-Layer Flow</h3>
+                <div class="max-w-4xl mx-auto space-y-4">
+                    <div class="bg-white p-6 rounded-lg shadow-md flex items-center space-x-6">
+                        <div class="flex-shrink-0 bg-[#6C8EAD] text-white w-12 h-12 rounded-full flex items-center justify-center text-xl font-bold">1</div>
+                        <div>
+                            <h4 class="font-bold text-lg text-[#4A4A4A]">Expert Defines the "What" with DSL</h4>
+                            <p class="text-gray-600">A domain expert writes a simple spec: what data to use, what capabilities to apply (e.g., `forecast`), and what UI elements to show (e.g., `chart`, `slider`).</p>
+                        </div>
+                    </div>
+                     <div class="text-center text-2xl font-light text-gray-400">↓</div>
+                     <div class="bg-white p-6 rounded-lg shadow-md flex items-center space-x-6">
+                        <div class="flex-shrink-0 bg-[#B88A78] text-white w-12 h-12 rounded-full flex items-center justify-center text-xl font-bold">2</div>
+                        <div>
+                            <h4 class="font-bold text-lg text-[#4A4A4A]">Hosted Renderer Does the "How"</h4>
+                            <p class="text-gray-600">Our cloud runtime interprets the DSL, securely connects to data sources, executes the requested capabilities from the open-source kit, and prepares the results.</p>
+                        </div>
+                    </div>
+                     <div class="text-center text-2xl font-light text-gray-400">↓</div>
+                    <div class="bg-white p-6 rounded-lg shadow-md flex items-center space-x-6">
+                        <div class="flex-shrink-0 bg-[#8A9A5B] text-white w-12 h-12 rounded-full flex items-center justify-center text-xl font-bold">3</div>
+                        <div>
+                            <h4 class="font-bold text-lg text-[#4A4A4A]">UI is Auto-Generated for the User</h4>
+                            <p class="text-gray-600">The end-user gets a clean, interactive web interface—with the charts, sliders, and buttons defined in the DSL—without any front-end coding required.</p>
+                        </div>
+                    </div>
                 </div>
             </div>
         </section>
 
-        <!-- Competitive Edge -->
         <section id="competition" class="space-y-12 section-fade-in">
             <div class="text-center">
                 <h2 class="text-3xl md:text-4xl font-bold text-[#4A4A4A]">The Competitive Landscape</h2>
-                <p class="mt-4 max-w-3xl mx-auto text-lg text-gray-600">OpenExpert is strategically positioned to fill the "missing middle" between inflexible, high-cost platforms and bare-bones open-source frameworks.</p>
+                <p class="mt-4 max-w-3xl mx-auto text-lg text-gray-600">OpenExpert is strategically positioned to create a new category, moving beyond the limits of AutoML platforms and the raw complexity of pure code.</p>
             </div>
             <div class="w-full overflow-x-auto bg-white p-6 rounded-xl shadow-md">
                 <table class="w-full min-w-max text-left">
                     <thead>
                         <tr id="competitor-table-header" class="border-b">
-                            <!-- Header cells inserted by JS -->
-                        </tr>
+                            </tr>
                     </thead>
                     <tbody id="competitor-table-body">
-                        <!-- Body rows inserted by JS -->
-                    </tbody>
+                        </tbody>
                 </table>
             </div>
         </section>
 
-        <!-- Playbook & Roadmap -->
         <section id="playbook" class="space-y-16 section-fade-in">
             <div class="text-center">
                 <h2 class="text-3xl md:text-4xl font-bold text-[#4A4A4A]">The Path to Market Leadership</h2>
@@ -190,28 +195,25 @@
 
             <div>
                 <h3 class="text-2xl font-semibold text-center mb-8 text-[#4A4A4A]">Learning from Disruptors</h3>
-                <div id="playbook-grid" class="grid grid-cols-1 sm:grid-cols-3 gap-8 text-center">
-                    <!-- Playbook cards inserted by JS -->
-                </div>
+                <div id="playbook-grid" class="grid grid-cols-2 sm:grid-cols-4 gap-8 text-center">
+                    </div>
             </div>
 
             <div>
                  <h3 class="text-2xl font-semibold text-center mb-12 text-[#4A4A4A]">Multi-Phase Go-to-Market Roadmap</h3>
                 <div id="roadmap" class="relative">
-                     <!-- Roadmap steps will be dynamically inserted here -->
-                </div>
+                     </div>
             </div>
         </section>
 
     </main>
     
-    <!-- Modal for Playbook Details -->
     <div id="playbookModal" class="fixed inset-0 bg-black bg-opacity-50 z-50 hidden items-center justify-center p-4">
         <div class="bg-white rounded-lg shadow-xl w-full max-w-2xl max-h-[90vh] overflow-y-auto">
             <div class="p-6">
                 <div class="flex justify-between items-center mb-4">
                     <h3 id="modalTitle" class="text-2xl font-bold text-[#4A4A4A]"></h3>
-                    <button id="closeModal" class="text-gray-500 hover:text-gray-800">&times;</button>
+                    <button id="closeModal" class="text-gray-500 hover:text-gray-800 text-3xl leading-none">&times;</button>
                 </div>
                 <div id="modalContent" class="text-gray-600 space-y-4"></div>
             </div>
@@ -227,7 +229,7 @@ document.addEventListener('DOMContentLoaded', function() {
         labels: ['2023', '2025', '2028', '2030'],
         datasets: [{
             label: 'Projected Market Size (in Billions USD)',
-            data: [2.7, 5.0, 8.5, 10.9],
+            data: [18.4, 45.8, 95.0, 135.0], // Updated to reflect broader AI platform market
             borderColor: '#6C8EAD',
             backgroundColor: 'rgba(108, 142, 173, 0.2)',
             fill: true,
@@ -240,35 +242,37 @@ document.addEventListener('DOMContentLoaded', function() {
     };
 
     const painPointsData = [
-        { title: 'Prohibitive Cost', icon: '💰', description: 'Median annual cost of $180k with opaque multi-year contracts, pricing out a vast segment of the market.', counter: '<strong>OpenExpert\'s Edge:</strong> An open-core model with a powerful free Dev Kit and transparent, consumption-based pricing for the cloud platform.' },
-        { title: 'Inflexible "Black Box"', icon: '🔒', description: 'Advanced users are frustrated by customization limits and an inability to implement custom data pipelines or models.', counter: '<strong>OpenExpert\'s Edge:</strong> A fully composable, code-first AI Dev Kit. Every step is a modifiable Python object, offering ultimate flexibility.' },
-        { title: 'Weak EDA', icon: '📉', description: 'Platform glosses over crucial Exploratory Data Analysis, risking models built on flawed data.', counter: '<strong>OpenExpert\'s Edge:</strong> Best-in-class, interactive EDA is a core, out-of-the-box feature of the free Dev Kit.' },
-        { title: 'Disjointed UX', icon: '🎭', description: 'Moving between the low-code UI and notebooks feels like starting over, creating rework and friction.', counter: '<strong>OpenExpert\'s Edge:</strong> A single, unified, notebook-centric UI powered by an AI Code Generation Engine for a seamless experience.' },
-        { title: 'Reliability & Security', icon: '🛡️', description: 'Users report issues with deployment reliability and inflexible security policies in shared cloud environments.', counter: '<strong>OpenExpert\'s Edge:</strong> Focus on a robust managed cloud with a strong SLA and advanced security controls (VPC, BYOK) in enterprise tiers.' },
-        { title: 'Expensive Services', icon: '�', description: 'Heavy reliance on a costly internal professional services team to bridge platform gaps, inflating total cost.', counter: '<strong>OpenExpert\'s Edge:</strong> A decentralized, scalable ecosystem of certified partners managed through a marketplace, providing choice and lower costs.' }
+        { title: 'Prohibitive Cost', icon: '💰', description: 'Median annual cost of $180k+ with opaque multi-year contracts, pricing out a vast segment of the market.', counter: '<strong>OpenExpert\'s Edge:</strong> An open-core model with a powerful free Capability Kit and transparent, consumption-based pricing for the cloud runtime.' },
+        { title: 'Inflexible "Black Box"', icon: '🔒', description: 'Advanced users are frustrated by customization limits and an inability to implement custom logic or models.', counter: '<strong>OpenExpert\'s Edge:</strong> A fully transparent, DSL-driven architecture. Every step is auditable and modifiable, offering ultimate flexibility.' },
+        { title: 'Disjointed UX', icon: '🎭', description: 'Moving between a UI and code notebooks feels like starting over. There is no way for a non-technical expert to steer the application.', counter: '<strong>OpenExpert\'s Edge:</strong> A single, unified flow. Experts define logic in the DSL, and the UI is auto-generated, eliminating friction.' },
+        { title: 'Slow & Brittle', icon: '🧱', description: 'Building custom apps on top of platforms is slow, requiring engineering for every tweak, and creating technical debt.', counter: '<strong>OpenExpert\'s Edge:</strong> The DSL enables rapid iteration. Changes to logic are simple text edits, not complex engineering projects.' },
+        { title: 'Reliability & Security', icon: '🛡️', description: 'Users report issues with deployment reliability and inflexible security policies in shared cloud environments.', counter: '<strong>OpenExpert\'s Edge:</strong> Focus on a robust managed runtime with a strong SLA and advanced security controls (VPC, BYOK) in enterprise tiers.' },
+        { title: 'Expensive Services', icon: '💸', description: 'Heavy reliance on a costly internal professional services team to bridge platform gaps, inflating total cost.', counter: '<strong>OpenExpert\'s Edge:</strong> A decentralized, scalable ecosystem of certified partners managed through a marketplace, providing choice and lower costs.' }
     ];
 
     const competitiveData = {
-        headers: ['', 'OpenExpert', 'DataRobot', 'Hyperscalers (AWS/GCP)', 'Pure Open Source'],
+        headers: ['', 'OpenExpert', 'DataRobot / Alteryx', 'Hyperscalers (AWS/GCP)', 'Pure Open Source'],
         rows: [
-            { feature: 'Cost Model', values: ['Open-Core, Usage-Based', 'High-Cost, Opaque', 'Complex Pay-as-you-go', 'Free'] },
-            { feature: 'Flexibility', values: ['Extremely High (Glass Box)', 'Low (Black Box)', 'High (but fragmented)', 'Extremely High (but raw)'] },
-            { feature: 'AI Code Gen', values: ['Core Feature', 'None', 'Integrated, but generic', 'None'] },
-            { feature: 'Ease of Use', values: ['High (AI-assisted)', 'High (for simple tasks)', 'Moderate (Complex assembly)', 'Low (Requires expertise)'] },
+            { feature: 'Core Abstraction', values: ['Domain-Specific Language (DSL)', 'Graphical User Interface (GUI)', 'Infrastructure APIs', 'Code Libraries'] },
+            { feature: 'Primary User', values: ['Domain Expert', 'Business Analyst', 'Engineer', 'Data Scientist'] },
+            { feature: 'Flexibility', values: ['Very High (Glass Box)', 'Low (Black Box)', 'High (but fragmented)', 'Extremely High (but raw)'] },
+            { feature: 'Ease of Use', values: ['High (Declarative)', 'High (for simple tasks)', 'Moderate (Complex assembly)', 'Low (Requires expertise)'] },
+            { feature: 'TCO', values: ['Low (Reusable Components)', 'High (Seat/Usage Fees)', 'Variable (Complex)', 'Low (but high OpEx)'] },
             { feature: 'Service Model', values: ['Partner Ecosystem', 'Expensive In-House', 'Vast Partner Network', 'Community Support'] }
         ]
     };
     
     const playbookData = [
-        { company: 'GitLab', logo: '🚀', analysis: 'Used a "dual flywheel" model. The open-source Community Edition drove bottom-up adoption, creating a massive user base that converted to paid tiers for enterprise features.', tactic: 'Adopt a tiered "open-core" model. The AI Dev Kit will be the free core, with paid tiers for managed cloud, team features, and enterprise security.' },
-        { company: 'Confluent', logo: '🌊', analysis: 'Built a business by taming the complexity of a powerful open-source tool (Apache Kafka). Their managed cloud offering abstracted away the huge operational burden.', tactic: 'Make "OpenExpert Cloud" the primary commercial offering. Focus on a seamless, managed experience with transparent, consumption-based pricing to reduce operational overhead for customers.' },
-        { company: 'HashiCorp', logo: '🏗️', analysis: 'Succeeded with a multi-product strategy, where each tool (Terraform, Vault) solved a specific practitioner pain point, creating multiple entry points into an organization.', tactic: 'Market components of the Dev Kit as standalone tools (e.g., "OpenExpert EDA"). Build a world-class developer portal and use certifications to foster the expert ecosystem.' }
+        { company: 'Vercel', logo: '▲', analysis: 'Built a dominant "Frontend Cloud" by creating the best open-source framework (Next.js) and then selling the best workflow to run it on. This flywheel converted a massive developer community into paying customers.', tactic: 'Position OpenExpert as the "Vercel for AI." The open-source Capability Kit drives adoption, while the hosted DSL Runtime becomes the indispensable, monetized platform for building and scaling expert-steered apps.' },
+        { company: 'GitLab', logo: '🚀', analysis: 'Used a "dual flywheel" model. The open-source Community Edition drove bottom-up adoption, creating a massive user base that converted to paid tiers for enterprise features.', tactic: 'Adopt a tiered "open-core" model. The Capability Kit will be the free core, with paid tiers for the managed runtime, team features, and enterprise security.' },
+        { company: 'Confluent', logo: '🌊', analysis: 'Built a business by taming the complexity of a powerful open-source tool (Apache Kafka). Their managed cloud offering abstracted away the huge operational burden.', tactic: 'Make the "OpenExpert Runtime" the primary commercial offering. Focus on a seamless, managed experience with transparent, consumption-based pricing to reduce operational overhead for customers.' },
+        { company: 'HashiCorp', logo: '🏗️', analysis: 'Succeeded with a multi-product strategy, where each tool (Terraform, Vault) solved a specific practitioner pain point, creating multiple entry points into an organization.', tactic: 'Market components of the Capability Kit as standalone solutions. Build a world-class developer portal and use certifications to foster the expert ecosystem.' }
     ];
 
     const roadmapData = [
-        { phase: 'Phase 1: Foundation & Community (Year 1)', title: 'Win Practitioner Hearts & Minds', description: 'Launch the open-source AI Dev Kit. Focus on impeccable documentation, technical content, and authentic community engagement. Success is measured by GitHub stars and active contributors, not revenue.'},
-        { phase: 'Phase 2: Commercialization (Years 2-3)', title: 'Launch Cloud & Ecosystem', description: 'Launch OpenExpert Cloud with a generous free tier and consumption-based pricing. Roll out the AI Code Generation engine and the official Certification Program to begin building the partner network.' },
-        { phase: 'Phase 3: Scaling & Dominance (Year 4+)', title: 'Target the Enterprise', description: 'Build out a targeted enterprise sales team. Aggressively expand advanced security and compliance features. Engage with industry analysts to secure market leadership.' }
+        { phase: 'Phase 1: Foundation & Community (Year 1)', title: 'Build the Core & Win Hearts', description: 'Launch the open-source Capability Kit and the core DSL Renderer. Focus on impeccable documentation and building a community of early expert users. Success is measured by adoption, not revenue.'},
+        { phase: 'Phase 2: Commercialization (Years 2-3)', title: 'Launch Cloud & Ecosystem', description: 'Launch OpenExpert Cloud with a generous free tier and consumption-based pricing. Roll out the official Certification Program to begin building the partner network.' },
+        { phase: 'Phase 3: Scaling & Dominance (Year 4+)', title: 'Target the Enterprise', description: 'Build out a targeted enterprise sales team. Aggressively expand advanced security, governance, and compliance features. Engage with industry analysts to define and lead the Expert-Steerable AI category.' }
     ];
 
 
@@ -339,7 +343,7 @@ document.addEventListener('DOMContentLoaded', function() {
     const tableBody = document.getElementById('competitor-table-body');
     competitiveData.headers.forEach((header, index) => {
         const th = document.createElement('th');
-        th.className = `p-4 font-semibold ${index > 0 ? 'text-center' : ''}`;
+        th.className = `p-4 font-semibold ${index === 0 ? 'text-left' : 'text-center'}`;
         th.textContent = header;
         tableHeader.appendChild(th);
     });
@@ -350,12 +354,18 @@ document.addEventListener('DOMContentLoaded', function() {
         tdFeature.className = 'p-4 font-medium';
         tdFeature.textContent = row.feature;
         tr.appendChild(tdFeature);
-        row.values.forEach(value => {
+        row.values.forEach((value, index) => {
             const td = document.createElement('td');
             td.className = 'p-4 text-center text-gray-600';
-            if(value.includes('Extremely High')) {
-                td.innerHTML = `<span class="inline-block px-3 py-1 text-xs font-semibold text-green-800 bg-green-200 rounded-full">${value}</span>`;
-            } else if (value.includes('Low')) {
+            
+            // Highlight the OpenExpert column
+            if (index === 0) {
+                 td.className += ' font-semibold text-[#6C8EAD]';
+            }
+
+            if(value.includes('High') || value.includes('Low (Reusable Components)')) {
+                 td.innerHTML = `<span class="inline-block px-3 py-1 text-xs font-semibold text-green-800 bg-green-200 rounded-full">${value}</span>`;
+            } else if (value.includes('Low (Requires expertise)') || value.includes('High (Seat/Usage Fees)') || value.includes('Black Box')) {
                  td.innerHTML = `<span class="inline-block px-3 py-1 text-xs font-semibold text-red-800 bg-red-200 rounded-full">${value}</span>`;
             } else {
                  td.textContent = value;
@@ -374,11 +384,13 @@ document.addEventListener('DOMContentLoaded', function() {
 
     playbookData.forEach(item => {
         const card = document.createElement('div');
-        card.className = 'pillar-card bg-white p-6 rounded-xl shadow-md cursor-pointer';
+        card.className = 'pillar-card bg-white p-6 rounded-xl shadow-md cursor-pointer flex flex-col items-center justify-between';
         card.innerHTML = `
-            <div class="text-5xl mb-4">${item.logo}</div>
-            <h4 class="text-xl font-bold text-[#4A4A4A] mb-2">${item.company}</h4>
-            <p class="text-sm text-[#6C8EAD] font-semibold">View Playbook</p>
+            <div>
+                <div class="text-5xl mb-4">${item.logo}</div>
+                <h4 class="text-xl font-bold text-[#4A4A4A] mb-2">${item.company}</h4>
+            </div>
+            <p class="text-sm text-[#6C8EAD] font-semibold mt-4">View Playbook</p>
         `;
         card.addEventListener('click', () => {
             modalTitle.textContent = `${item.company}'s Playbook`;
@@ -411,7 +423,6 @@ document.addEventListener('DOMContentLoaded', function() {
     roadmapContainer.appendChild(line);
 
     roadmapData.forEach((step, index) => {
-        const isEven = index % 2 === 0;
         const wrapper = document.createElement('div');
         wrapper.className = `relative flex items-center justify-between md:justify-normal md:odd:flex-row-reverse group`;
 
